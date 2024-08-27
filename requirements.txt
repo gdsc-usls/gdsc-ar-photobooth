@@ -1,0 +1,4 @@
+requests
+Flask
+watchdog
+Flask-Sessions
