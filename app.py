@@ -28,7 +28,7 @@ class ObsImageHandler(FileSystemEventHandler):
             print(f"New File {event.src_path} has been loaded.")
 
 def start_watchdog():
-    ABS_PATH = 'D:\FILES\PROGRAMMING\GDSC_Photobooth\images'
+    ABS_PATH = 'D:\FILES\PROGRAMMING\GDSC_Photobooth\images' #C:\Users\WIndows 11\Pictures\Screenshots
     event_handler = ObsImageHandler()
     observer = Observer()
     observer.schedule(event_handler, ABS_PATH, recursive=False)
