@@ -5,7 +5,7 @@ from pydrive.drive import GoogleDrive
 from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
 
-IMG_DIR = 'images/'
+IMG_DIR = 'Screenshots/'
 ALLOWED_FILE_EXT = ('.png', '.jpg', '.jpeg')
 
 class Watcher:
@@ -36,9 +36,10 @@ class Handler(FileSystemEventHandler):
         if not event.is_directory and event.src_path.endswith(ALLOWED_FILE_EXT):
             self.latestImg = event.src_path
             print(f"[FILE_FOUND_NOTIF] New file [{self.latestImg}] found!")
-            folderID, secretFile, credsPath = load_env()
-            drive = google_auth(secretFile, credsPath)
-            upload_todrive(drive, folderID, self.latestImg)
+            time.sleep(2)
+        folderID, secretFile, credsPath = load_env()
+        drive = google_auth(secretFile, credsPath)
+        upload_todrive(drive, folderID, self.latestImg)
 
 
 def load_env():
