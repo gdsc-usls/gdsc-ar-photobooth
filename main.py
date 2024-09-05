@@ -14,7 +14,7 @@ class Watcher:
         self.path = IMG_DIR
 
     def run(self):
-        """ Start monitoring images folder for new files. """
+        """  Start monitoring images folder for new files.  """
         handler = Handler()
         self.observer.schedule(handler, self.path, recursive=False)
         self.observer.start()
@@ -32,7 +32,7 @@ class Handler(FileSystemEventHandler):
         self.latestImg = None
 
     def on_created(self, event):
-        """ Override on_created() method to upload new files detected to Google Drive. """
+        """  Override on_created() method to upload new files detected to Google Drive.  """
         if not event.is_directory and event.src_path.endswith(ALLOWED_FILE_EXT):
             self.latestImg = event.src_path
             print(f"[FILE_FOUND_NOTIF] New file [{self.latestImg}] found!")
@@ -43,7 +43,7 @@ class Handler(FileSystemEventHandler):
 
 
 def load_env():
-    """ Load environment variables from .env """
+    """  Load environment variables from .env  """
     load_dotenv()
     folderID = os.getenv('folder_id')
     secretFile = os.getenv('client_secret')
@@ -52,7 +52,7 @@ def load_env():
 
 
 def google_auth(file, path):
-    """ Authenticate Google Drive using OAuth API. """
+    """  Authenticate Google Drive using OAuth API.  """
     gauth = GoogleAuth() 
     gauth.LoadClientConfigFile(file)
     gauth.LoadCredentialsFile(path)
@@ -70,7 +70,7 @@ def google_auth(file, path):
 
 
 def upload_todrive(drive, folder, file):
-    """ Upload detected files to Drive. """
+    """  Upload detected files to Drive.  """
     gfile = drive.CreateFile({'parents': [{'id': folder}]})
     gfile.SetContentFile(file)
     gfile.Upload()
