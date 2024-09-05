@@ -11,8 +11,7 @@ This Python script automates file tracking and uploading to Google Drive using t
 - A stable Internet/Mobile Data connection
 
 ### Disclaimer
-Always see to it that the script is **constantly running** so that file uploads are consistent.
-Pressing **CTRL + C** will terminate the script - a `TERMINATE_NOTIF` will be logged into the console.
+Ensure the script remains **running at all times** for consistent file uploads. Pressing `CTRL + C` will terminate the script, and a `TERMINATE_NOTIF` will be logged in the console.
 
 #### How to run the script
 1. Open Command Prompt. (Win + R -> type cmd -> Enter)
@@ -23,7 +22,7 @@ python main.py
 ```
 4. A `WATCHER_TRIGGER_NOTIF` will be logged into the console if it has successfully started the script.
 5. **Troubleshooting**: If any error/s occur, check the following:
-* Python is installed: Run `python --version` to verify.
+* Python is installed: Run `python --version` (or `python3 --version` on Linux/macOS) to verify.
 * Environment variables are correctly set: Ensure the `.env` file is in place with valid credentials.
 * Images Folder is in the directory: Check if there is a `Screenshots` Folder.
 * Creds folder is in the directory: Verify that creds folder contain the ff files: 
