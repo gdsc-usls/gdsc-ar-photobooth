@@ -23,19 +23,19 @@ python main.py
 ```
 4. A **WATCHER_TRIGGER_NOTIF** will be logged into the console if it has successfully started the script.
 5. **Troubleshooting**: If any error/s occur, check the following:
-    A. Python is installed: Run python --version to verify.
-    B. Environment variables are correctly set: Ensure the .env file is in place with valid credentials.
-    C. Images Folder is in the directory: Check if there is a **Screenshots** Folder.
-    D. Creds folder is in the directory: Verify that creds folder contain the ff files: 
-        d.1 client_secrets_XXXX.json (OAuth 2.0 Client Secret for Google API)
-        d.2 credentials.json (OAuth 2.0 Tokens - Generated after first authentication)
-        d.3 settings.yml (Application-specific settings - folder paths, Google Drive ID)
-    E. Internet Connection: Verify that the device is connected to the internet. 
+* A. Python is installed: Run python --version to verify.
+* B. Environment variables are correctly set: Ensure the `.env` file is in place with valid credentials.
+* C. Images Folder is in the directory: Check if there is a `**Screenshots**` Folder.
+* D. Creds folder is in the directory: Verify that creds folder contain the ff files: 
+    * d.1 client_secrets_XXXX.json (OAuth 2.0 Client Secret for Google API)
+    * d.2 credentials.json (OAuth 2.0 Tokens - Generated after first authentication)
+    * d.3 settings.yml (Application-specific settings - folder paths, Google Drive ID)
+* E. Internet Connection: Verify that the device is connected to the internet. 
 
 ### Libraries and API Setups
-1. `Watchdog` - monitors the specified directory for changes and triggers events (file created, modified, deleted). [Watchdog Documentation](https://pypi.org/project/watchdog/)
-2. [Google Drive Authentication Setup](https://d35mpxyw7m7k7g.cloudfront.net/bigdata_1/Get+Authentication+for+Google+Service+API+.pdf)  
-3. [PyDrive Setup](https://www.projectpro.io/recipes/upload-files-to-google-drive-using-python)When a file is created or modified, the script uses `PyDrive` to authenticate via OAuth 2.0 and upload the file to Google Drive. 
+1. `Watchdog` - monitors the specified directory for changes and triggers events (file created, modified, deleted). ([Watchdog Documentation])(https://pypi.org/project/watchdog/)
+2. ([Google Drive Authentication Setup])(https://d35mpxyw7m7k7g.cloudfront.net/bigdata_1/Get+Authentication+for+Google+Service+API+.pdf)  
+3. When a file is created or modified, the script uses `PyDrive` to authenticate via OAuth 2.0 and upload the file to Google Drive. ([PyDrive Setup])(https://www.projectpro.io/recipes/upload-files-to-google-drive-using-python)
 
 ### Flowchart
 Below is a flowchart of the file tracking and uploading process:
