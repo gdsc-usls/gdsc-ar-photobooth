@@ -52,29 +52,35 @@ def load_env():
 
 
 def google_auth(file, path):
-    """ Authenticate Google Drive using OAuth API. """
-    gauth = GoogleAuth() 
-    gauth.LoadClientConfigFile(file)
-    gauth.LoadCredentialsFile(path)
+    try:
+        """ Authenticate Google Drive using OAuth API. """
+        gauth = GoogleAuth() 
+        gauth.LoadClientConfigFile(file)
+        gauth.LoadCredentialsFile(path)
 
-    if gauth.credentials is None:
-        gauth.LocalWebserverAuth()
-        gauth.SaveCredentialsFile(path)
-    elif gauth.access_token_expired:
-        gauth.Refresh()
-    else:
-        gauth.Authorize()
+        if gauth.credentials is None:
+            gauth.LocalWebserverAuth()
+            gauth.SaveCredentialsFile(path)
+        elif gauth.access_token_expired:
+            gauth.Refresh()
+        else:
+            gauth.Authorize()
 
-    drive = GoogleDrive(gauth)
-    return drive
+        drive = GoogleDrive(gauth)
+        return drive
+    except:
+        print("No Internet Connection")
 
 
 def upload_todrive(drive, folder, file):
-    """ Upload detected files to Drive. """
-    gfile = drive.CreateFile({'parents': [{'id': folder}]})
-    gfile.SetContentFile(file)
-    gfile.Upload()
-    print(f"[UPLOAD_SUCCESS_NOTIF] File {file} uploaded successfully.")
+    try:
+        """ Upload detected files to Drive. """
+        gfile = drive.CreateFile({'parents': [{'id': folder}]})
+        gfile.SetContentFile(file)
+        gfile.Upload()
+        print(f"[UPLOAD_SUCCESS_NOTIF] File {file} uploaded successfully.")
+    except:
+        print("No Internet Connection")
 
 if __name__ == "__main__":
     fileWatcher = Watcher()
