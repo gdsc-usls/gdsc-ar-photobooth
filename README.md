@@ -11,7 +11,8 @@ This Python script automates file tracking and uploading to Google Drive using t
 - A stable Internet/Mobile Data connection
 
 ### Disclaimer
-Ensure the script remains **running at all times** for consistent file uploads. Pressing `CTRL + C` will terminate the script, and a `TERMINATE_NOTIF` will be logged in the console.
+- Ensure the script remains **running at all times** for consistent file uploads. Pressing `CTRL + C` will terminate the script, and a `TERMINATE_NOTIF` will be logged in the console.
+- Do not clear your browser's cookies while the script is either: running or has already generated the necessary credentials for the API to prevent unprecedented behaviors.
 
 #### How to run the script
 1. Open Command Prompt. (Win + R -> type cmd -> Enter)
@@ -43,5 +44,5 @@ Below is a flowchart of the file tracking and uploading process:
 ### Contact
 If you have encountered any bugs/error, kindly notify the following officers ASAP via any GDSC - Related Group Chats.
 1. John Octavio - Web Development Lead
-2. Jared Ramon Elizan - Tech Officer (Web Development)
-3. Toby Javelona - Tech Officer (AI)
+2. Jared Ramon Elizan - Tech Officer | Web Development
+3. Toby Javelona - Tech Officer | AI
