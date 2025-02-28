@@ -1,5 +1,6 @@
 import os, time
 from dotenv import load_dotenv
+from oauth2client.client import HttpAccessTokenRefreshError
 from pydrive.auth import GoogleAuth 
 from pydrive.drive import GoogleDrive 
 from watchdog.events import FileSystemEventHandler
@@ -38,9 +39,12 @@ class Handler(FileSystemEventHandler):
             print(f"[FILE_FOUND_NOTIF] New file [{self.latestImg}] found!")
             time.sleep(2)
         folderID, secretFile, credsPath = load_env()
-        drive = google_auth(secretFile, credsPath)
-        upload_todrive(drive, folderID, self.latestImg)
-
+        try:
+            drive = google_auth(secretFile, credsPath)
+            upload_todrive(drive, folderID, self.latestImg)
+        except HttpAccessTokenRefreshError:
+            print("[GOOGLE_AUTH_NOTIF] Failed to refresh access token")
+            print("[GOOGLE_AUTH_NOTIF] Either access token is expired or invalid credentials. Check your credentials or delete the credentials.json file")
 
 def load_env():
     """  Load environment variables from .env  """

@@ -31,6 +31,9 @@ python main.py
     * credentials.json (OAuth 2.0 Tokens - Generated after first authentication)
     * settings.yml (Application-specific settings - folder paths, Google Drive ID)
 * Internet Connection: Verify that the device is connected to the internet. 
+* HttpAccessTokenRefreshError: It is possible that the JSON file containing the OAuth credentials can expire
+    * The working solution is to delete the credentials.json that has the tokens
+    * Run the python file, and login to the verified email.
 
 ### Libraries and API Setups
 1. `Watchdog` - monitors the specified directory for changes and triggers events (file created, modified, deleted). [Watchdog Documentation](https://pypi.org/project/watchdog/)
